@@ -1,0 +1,6 @@
+matplotlib==3.7.1
+xarray==2023.4.2
+cdsapi==0.6.1
+pandas==2.0.0
+import-ipynb==0.1.4
+netCDF4==1.6.3

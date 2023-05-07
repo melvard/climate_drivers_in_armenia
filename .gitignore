@@ -1,3 +1,12 @@
-#ignore macos files
-*.nc
+# macos files
 *.DS_Store
+
+# downloaded .nc files
+*.nc
+
+# Byte-compiled / optimized / DLL files
+
+/__pycache__/
+
+# Jupyter Notebook
+/.ipynb_checkpoints

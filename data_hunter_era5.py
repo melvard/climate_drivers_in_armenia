@@ -76,7 +76,7 @@ class DataRetriver:
             pathList.append(file_path)
 
             if(os.path.exists(file_path)):
-                print(f"File {file_path} already exist.")
+                # print(f"File {file_path} already exist.")
                 continue
             else:
                 print(i.year,i.month,i.day)

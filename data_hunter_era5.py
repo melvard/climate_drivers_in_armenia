@@ -35,7 +35,7 @@ class DataRetriver:
                     '18:00','19:00','20:00',
                     '21:00','22:00','23:00'
                 ],
-                'area': area
+            'area': area
             },
             filename)
         return
@@ -79,7 +79,7 @@ class DataRetriver:
                 # print(f"File {file_path} already exist.")
                 continue
             else:
-                print(i.year,i.month,i.day)
+                # print(i.year,i.month,i.day)
                 DataRetriver.retrieve_single_day_data_func(str(i.day).zfill(2), 
                                                            str(i.month).zfill(2), 
                                                            i.year, 
@@ -95,7 +95,7 @@ class DataRetriver:
         retrived_days_data = []
 
         for file_path in pathList:
-            print(file_path)
+            # print(file_path)
             ds = xr.open_dataset(file_path)
             retrived_days_data.append(ds)
 

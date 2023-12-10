@@ -101,3 +101,9 @@ class DataRetriver:
 
         return retrived_days_data
         
+    @staticmethod
+    def retrive_custom_data(startDate, endDate, properties, long_min, long_max, lat_min,lat_max):
+        # [N,W,S,E]
+        area = [lat_max, long_min, lat_min, long_max]
+        return DataRetriver.retrive_data_xarray(startDate, endDate, properties, area)
+

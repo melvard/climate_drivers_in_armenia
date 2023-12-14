@@ -7,7 +7,7 @@ import sys;
 import ast;
 
 def k_means(variableNames, variableValues, longitude, latitude):
-
+    
     global_observed_data = DataRetriver.retrive_custom_data(
         startDate='2019-11-25',
         endDate='2019-11-28',
@@ -64,7 +64,7 @@ def k_means(variableNames, variableValues, longitude, latitude):
     localized_data['cluster_centroids'] = xr.DataArray(kmeans.cluster_centers_, dims=['cluster', 'feature'])
 
     # Predict the cluster for a new data point
-    new_data_point = np.array([values])  # Replace with actual float values
+    new_data_point = np.array([variableValues])  # Replace with actual float values
     new_data_point = new_data_point.astype(kmeans.cluster_centers_.dtype)  # Ensure consistent dtype
     predicted_cluster = kmeans.predict(new_data_point)
 

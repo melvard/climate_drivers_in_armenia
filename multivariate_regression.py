@@ -51,22 +51,31 @@ def multivariate_regression(target_variable, independent_variables, longitude, l
 
     # Print the regression summary
     summary = str(model.summary())
-
+    print(summary)
     # Extract coefficients and intercept from the model
     coefficients = model.params
-    intercept = model.params['const']
+    formula=""
+    if 'const' in model.params.index:
+        intercept = model.params['const']
+        # Extract variable names
+        variable_names = coefficients.index.tolist()[1:]  # Exclude the intercept
 
-    # Extract variable names
-    variable_names = coefficients.index.tolist()[1:]  # Exclude the intercept
+        # Create the formula string
+        formula_str = f"{intercept:.2f} + "
+        formula_str += " + ".join([f"{coefficients[var]:.2f} * {var}" for var in variable_names])
 
-    # Create the formula string
-    formula_str = f"{intercept:.2f} + "
-    formula_str += " + ".join([f"{coefficients[var]:.2f} * {var}" for var in variable_names])
+        # Print the formula
+        formula = f"\n\nMultivariate Regression Model Formula:\n{target_variable} = {formula_str}"
+    else:
+        variable_names = coefficients.index.tolist()  # Exclude the intercept
 
-    # Print the formula
-    summary += f"\n\nMultivariate Regression Model Formula: \n{target_variable} = {formula_str}"
+        # Create the formula string
+        formula_str = " + ".join([f"{coefficients[var]:.2f} * {var}" for var in variable_names])
 
-    return summary
+        # Print the formula
+        formula = f"Multivariate Regression Model Formula:\n{target_variable} = {formula_str}"
+
+    return summary, formula
 
 
 if(__name__ == "__main__"):

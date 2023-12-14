@@ -7,6 +7,17 @@ import numpy as np
 from sklearn.decomposition import PCA
 import pandas as pd
 import os
+import io
+import base64
+
+
+def save_plot_in_base64():
+    my_stringIObytes = io.BytesIO()
+    plt.savefig(my_stringIObytes, format='jpg')
+    my_stringIObytes.seek(0)
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode()
+
+    return my_base64_jpgData
 
 def pca(variableNames,  longitude, latitude):
 
@@ -62,6 +73,10 @@ def pca(variableNames,  longitude, latitude):
     plt.ylabel('Explained Variance Ratio')
     plt.savefig('pca_images/Explained_Variance_Ratio_by_Principal_Component.png')
 
+    my_base64_jpgData_explained_variance = save_plot_in_base64()
+
+    print(my_base64_jpgData);
+
     # plt.show()
     plt.clf()
     # Plot the cumulative explained variance
@@ -71,9 +86,9 @@ def pca(variableNames,  longitude, latitude):
     plt.ylabel('Cumulative Explained Variance')
     plt.savefig('pca_images/Cumulative_Explained_Variance_by_Principal_Component.png')
 
-    # plt.show()
-    
+    my_base64_jpgData_cumulative_explained_variance = save_plot_in_base64()
 
+    
     # Access the principal components (coefficients of original variables)
     components_matrix = pca.components_
 
@@ -97,5 +112,5 @@ if(__name__ == "__main__"):
     long = float(sys.argv[2])
     lat = float(sys.argv[3])
     summary = pca(properties, long, lat)
-    
+
     print(summary)

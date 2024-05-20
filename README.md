@@ -2,7 +2,7 @@
 
 Purpose of project:
 
-    The goal of project is to understand the drivers of climate variability and extremes in the territory of Armenia using ML approaches. Project illustrates how climate data fromERA5 reanalysis data servers can be downloaded and processed. The nearest goal is to take under our exploration a climate event from past in Armenia (cyclon for example) and using statistical and ML methodologies of analysing variables before that event simulate the happening of that event. The  Project is done within the colaboration of UFAR (French University of Armenia) and IIAP (Institute for Informatics and Automation Problems).
+The goal of project is to understand the drivers of climate variability and extremes in the territory of Armenia using ML approaches. Project illustrates how climate data fromERA5 reanalysis data servers can be downloaded and processed. The nearest goal is to take under our exploration a climate event from past in Armenia (cyclon for example) and using statistical and ML methodologies of analysing variables before that event simulate the happening of that event. The  Project is done within the colaboration of UFAR (French University of Armenia) and IIAP (Institute for Informatics and Automation Problems).
 
 ^^^^^ USAGE ^^^^^
 
